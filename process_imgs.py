@@ -6,10 +6,10 @@ import os
 def cropimg(imgname):
     img=Image.open("imgs_processed/"+imgname)
     w,h=img.size
-    img.crop((0, 0, w, 26*1)).save("crops/%s-head.png" % imgname)
+    img.crop((0, 0, w, 26*1)).save("crops/head_%s" % imgname)
     for i in range(1,11):
         if(h<26*(i+1)):break
-        img.crop((0,26*i,w,26*(i+1))).save("crops/%s-%d.png" % (imgname,i))
+        img.crop((0,26*i,w,26*(i+1))).save("crops/%d-%s" % (i,imgname))
     print('crop:',imgname,w,h)
 
 ##获取图片2值化数据
